@@ -1,2 +1,3 @@
-# beginning_ada_programming
+# Beginning Ada Programming
+
 Learning Ada from the book, "Beginning Ada Programming: From Novice to Professional".
