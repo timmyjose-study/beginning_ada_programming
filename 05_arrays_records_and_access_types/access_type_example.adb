@@ -18,7 +18,7 @@ procedure Access_Type_Example is
   Rec_Point: Rec_Access;
   Backup_Ac: Rec_Access;
 
-  Test_Int: aliased Integer := 94;
+  Test_Int: Int_Access := new Integer'(94);
 
   -- Overloaded functions for deallocation (explicit)
   procedure Deallocate is new Ada.Unchecked_Deallocation (Test_Rec, Rec_Access);
@@ -28,7 +28,7 @@ procedure Access_Type_Example is
 begin
   -- allocate the access types
   Rec_Point := new Test_Rec;
-  Rec_Point.Int_Point := Test_Int'Access; -- pointer to Test_Int (analogous to &Test_Int in C)
+  Rec_Point.Int_Point := Test_Int; -- pointer to Test_Int (analogous to &Test_Int in C)
   Rec_Point.Float_Point := new float'(0.0); -- normal syntax for allocating access types
   Rec_Point.String_Point := new String'("Hello, world");
 
@@ -58,13 +58,12 @@ begin
 
   -- deallocate the access types
   -- the Int_Point cannot be deallocated since it is aliased
-  --Deallocate (Rec_Point.Int_Point);
+  Deallocate (Rec_Point.Int_Point);
   Deallocate (Rec_Point.Float_Point);
   Deallocate (Rec_Point.String_Point);
   Deallocate (Rec_Point);
 
   -- this should not compile
   Ada.Text_IO.Put_Line ("The contents of our dynamically allocated record...");
-  -- this should raise a constraint error since the aliased pointer has been deallocated (but does not, for some reason - check on this)
   Ada.Text_IO.Put_Line ("    Integer: " & Integer'Image (Backup_Ac.Int_Point.all));
 end Access_Type_Example;
