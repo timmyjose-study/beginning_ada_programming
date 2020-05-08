@@ -6,6 +6,10 @@ trap cleanup_and_exit INT
 file="$1"
 filename="${file%.*}"
 
+# make sure to handle command-line arguments
+shift
+args="$*"
+
 function cleanup() {
   rm -f ${filename}.o
   rm -f ${filename}.ali
@@ -25,7 +29,12 @@ function cleanup_and_exit() {
   cleanup
 }
 
-gprbuild ${file} && ./${filename}
+if [ "$#" -gt 0 ]
+then
+  gprbuild ${file} && ./${filename} "${args}"
+else
+  gprbuild ${file} && ./${filename}
+fi
 
 # normal exit
 cleanup

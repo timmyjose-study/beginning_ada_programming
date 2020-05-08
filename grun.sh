@@ -3,6 +3,9 @@
 file="$1"
 filename="${file%.*}"
 
+shift
+args="$*"
+
 # cleanup even if Ctrl-C is pressed during execution
 trap cleanup_and_exit INT
 
@@ -21,7 +24,12 @@ function cleanup_and_exit() {
   cleanup
 }
 
-gnatmake -g ${file} && ./${filename}
+if [ "$#" -gt 0 ]
+then
+  gnatmake -g ${file} && ./${filename} ${args}
+else
+  gnatmake -g ${file} && ./${filename}
+fi
 
 # normal exit
 cleanup
