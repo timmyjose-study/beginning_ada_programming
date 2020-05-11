@@ -29,7 +29,7 @@ begin
   -- allocate the access types
   Rec_Point := new Test_Rec;
   Rec_Point.Int_Point := Test_Int; -- pointer to Test_Int (analogous to &Test_Int in C)
-  Rec_Point.Float_Point := new float'(0.0); -- normal syntax for allocating access types
+  Rec_Point.Float_Point := new Float'(0.0); -- normal syntax for allocating access types
   Rec_Point.String_Point := new String'("Hello, world");
 
   Backup_Ac := Rec_Point; -- aliased pointer
