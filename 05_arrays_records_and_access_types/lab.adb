@@ -8,7 +8,7 @@ with Ada.Unchecked_Deallocation;
 procedure Lab is
   -- integer random number generation
   subtype Vals is Natural range 0 .. 1000;
-  Package RandomInt is new Ada.Numerics.Discrete_Random (Result_Subtype => Vals);
+  package RandomInt is new Ada.Numerics.Discrete_Random (Result_Subtype => Vals);
   Val_Generator: RandomInt.Generator;
   GeneratedVal: Vals := 0;
 
@@ -47,12 +47,12 @@ procedure Lab is
     Emp_Acc: Employee_Access := new Employee;
   begin
     Emp_Acc.all.First_Name := Ada.Strings.Unbounded.To_Unbounded_String (Ada.Text_IO.Get_Line);
-    Emp_Acc.Last_Name := Ada.Strings.Unbounded.To_Unbounded_String (Ada.Text_IO.Get_Line);
-    Emp_Acc.Title := Ada.Strings.Unbounded.To_Unbounded_String (Ada.Text_IO.Get_Line);
-    Emp_Acc.Salary := Generate_Random_Float;
-    Emp_Acc.Vacation_Hours := Generate_Random_Integer;
-    Emp_Acc.Sick_Leaves := Generate_Random_Integer;
-    Emp_Acc.Years_With_Company := Generate_Random_Integer rem 30; -- sensible values
+    Emp_Acc.all.Last_Name := Ada.Strings.Unbounded.To_Unbounded_String (Ada.Text_IO.Get_Line);
+    Emp_Acc.all.Title := Ada.Strings.Unbounded.To_Unbounded_String (Ada.Text_IO.Get_Line);
+    Emp_Acc.all.Salary := Generate_Random_Float;
+    Emp_Acc.all.Vacation_Hours := Generate_Random_Integer;
+    Emp_Acc.all.Sick_Leaves := Generate_Random_Integer;
+    Emp_Acc.all.Years_With_Company := Generate_Random_Integer rem 30; -- sensible values
 
     return Emp_Acc;
   end Read_Employee;
