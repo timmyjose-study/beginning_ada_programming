@@ -1,0 +1,22 @@
+Generic Type Syntax                               Matching Type
+============================================================================================================
+
+type T (<>) is limited private;                   Cannot make copies, can be assigned to - truly generic type.
+
+type T (<>) is private;                           Same as above, but can be copied. Initial range is mandatory.
+
+type T is private;                                Same as above, but initial range is not mandatory.
+
+type T (<>) is tagged private;                    Represents a tagged record, and can be enhanced using inheritance.
+
+type T is (<>);                                   Any discrete type - integers or enumerated types.
+
+type T is range <>;                               Any signed integer;
+
+type T is delta <>;                               Floats with a specific level of precision.
+
+type T is digits <>;                              Floats but without a specified level of precision.
+
+type T is delta <> range <>;                      Same as above, but with specified precision.
+
+type T is access Some_Obj;                        This is an access to the object Some_Obj.
