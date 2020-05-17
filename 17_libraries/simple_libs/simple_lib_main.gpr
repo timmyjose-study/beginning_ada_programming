@@ -1,0 +1,19 @@
+with "./simple_lib.gpr";
+
+project Simple_Lib_Static_Main is
+  for Source_Dirs use ("build_static");
+  for Object_Dir use "build_static/";
+  for Main use ("build/main.adb");
+  for Languages use ("Ada");
+
+  package Compiler is
+    for Switches ("Ada") 
+      use ("-O2", "-gnatwa");
+  end Compiler;
+
+  package Binder is
+  end Binder;
+
+  package Linker is
+  end Linker;
+end Simple_Lib_Static_Main;
