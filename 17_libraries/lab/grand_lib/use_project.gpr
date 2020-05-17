@@ -1,0 +1,9 @@
+library project Use_Project is
+  for Languages use ("Ada");
+  for Externally_Built use "true";
+  for Source_Dirs use ("src");
+  for Library_Dir use "bin/release";
+  for Library_ALI_Dir use "ali/release";
+  for Library_Name use "grand_lib";
+  for Library_Kind use "static";
+end Use_Project;

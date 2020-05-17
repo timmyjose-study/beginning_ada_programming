@@ -1,0 +1,21 @@
+with "../use_project.gpr";
+
+project Main_Static is
+  for Source_Dirs use (".");
+  for Object_Dir use ".";
+  for Main use ("main_static.adb");
+  for Languages use ("Ada");
+
+  package Builder is
+  end Builder;
+
+  package Compiler is
+    for Switches ("Ada") use ("-O2", "-gnatwa");
+  end Compiler;
+
+  package Binder is
+  end Binder;
+
+  package Linker is
+  end Linker;
+end Main_Static;

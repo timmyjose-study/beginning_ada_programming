@@ -1,7 +1,7 @@
 [LIBRARY PATH]
-/Users/z0ltan/dev/study/ada/beginning_ada_programming/17_libraries/simple_libs/bin/release/libsimple_libs.dylib
+/Users/z0ltan/dev/study/ada/beginning_ada_programming/17_libraries/simple_libs/bin/release/libsimple_libs.a
 [OBJECT FILES]
 /Users/z0ltan/dev/study/ada/beginning_ada_programming/17_libraries/simple_libs/obj/release/calc_time.o
-20200517073257
+20200517153130
 /Users/z0ltan/dev/study/ada/beginning_ada_programming/17_libraries/simple_libs/obj/release/geometry_shapes.o
-20200517073257
+20200517153130
