@@ -17,4 +17,5 @@ begin
    String'Read (Channel, Data);
 
    Ada.Text_IO.Put_Line (Data);
+   GNAT.Sockets.Close_Socket (Socket);
 end TCP_Client;
